@@ -1,4 +1,4 @@
-Andrill - Java Mandrill API
+Andrill - Android Mandrill API
 ======
 
 It is a fork of [Lutung - a Java interface](https://github.com/rschreijer/lutung) to the [Mandrill](http://www.mandrill.com/) API. 
