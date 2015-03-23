@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.microtripit.mandrillapp.lutung.model;
 
@@ -55,7 +55,7 @@ public final class MandrillRequestDispatcher {
 				log.debug("Using new instance of default http client");
 				client = new DefaultHttpClient();
 				client.getParams().setParameter(
-						CoreProtocolPNames.USER_AGENT, 
+						CoreProtocolPNames.USER_AGENT,
 						client.getParams().getParameter(CoreProtocolPNames.USER_AGENT)+ "/Lutung-0.1");
                 // use proxy?
                 final ProxyData proxyData = detectProxyServer(requestModel.getUrl());
@@ -76,33 +76,33 @@ public final class MandrillRequestDispatcher {
 			if( requestModel.validateResponseStatus(status.getStatusCode()) ) {
 				try {
 					return requestModel.handleResponse( responseInputStream );
-					
+
 				} catch(final HandleResponseException e) {
 					throw new IOException(
-							"Failed to parse response from request '" 
+							"Failed to parse response from request '"
 							+requestModel.getUrl()+ "'", e);
-					
+
 				}
-				
+
 			} else {
 				// ==> compile mandrill error!
 				final String e = IOUtils.toString(responseInputStream);
 				final MandrillError error = LutungGsonUtils.getGson()
 						.fromJson(e, MandrillError.class);
 				throw new MandrillApiError(
-						"Unexpected http status in response: " 
-						+status.getStatusCode()+ " (" 
+						"Unexpected http status in response: "
+						+status.getStatusCode()+ " ("
 						+status.getReasonPhrase()+ ")").withError(error);
-				
+
 			}
-				
+
 		} finally {
 			if(responseInputStream != null) {
 				responseInputStream.close();
 			}
-			if(response != null) {
+			/*if(response != null) {
 				EntityUtils.consume(response.getEntity());
-			}
+			}*/
 		}
 	}
 
