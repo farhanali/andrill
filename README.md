@@ -1,6 +1,6 @@
 # Andrill - Android Mandrill API
 
-It is a fork of [Lutung - a Java interface](https://github.com/rschreijer/lutung) to the [Mandrill](http://www.mandrill.com/) API, optimized for using in Android.
+A library used for sending emails from Android using Mandrill. It is a fork of [Lutung - a Java interface](https://github.com/rschreijer/lutung) to the [Mandrill](http://www.mandrill.com/) API, optimized for using in Android.
 
 ## Installation
 
@@ -27,7 +27,7 @@ For Maven:
     <dependency>
         <groupId>com.github.farhanali</groupId>
         <artifactId>andrill</artifactId>
-        <version>beta0.1</version>
+        <version>v1.0.0</version>
     </dependency>
 
 ## References
